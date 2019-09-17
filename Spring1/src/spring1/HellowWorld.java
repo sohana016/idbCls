@@ -5,10 +5,13 @@
  */
 package spring1;
 
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author A D M I N
  */
+@Service("hellow")
 public class HellowWorld {
     String massage;
 
