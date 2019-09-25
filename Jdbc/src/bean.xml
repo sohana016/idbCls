@@ -25,24 +25,16 @@
           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd
 ">
     
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName">
-            <value>com.mysql.jdbc.Driver</value>
-        </property>
-        
-        <property name="url" value="jdbc:mysql://localhost:3306/sp">
-      
-        </property>
-        <property name="username" value="root"></property>
-        <property name="password" value="root"></property>
+           <bean id = "dataSource" 
+      class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>
+      <property name = "url" value = "jdbc:mysql://localhost:3306/sp"/>
+      <property name = "username" value = "root"/>
+      <property name = "password" value = "root"/>
+   </bean>
+   
+   <bean id="productJDBCTemplate" class="com.hiber.ProductJDBCTemplate">
+       <property name="dataSource" ref="dataSource"></property>
+   </bean>
 
-    </bean>
-    <bean id="productDao" class="com.jdbcspring.ProductDao">
-        <property name="dataSource" ref="dataSource"></property>
-        
-    </bean>
-<!--    <bean id="jdbcTemplate" class="com.jdbcspring.JdbcProductDao">
-        <property name="dataSource" ref="dataSource"></property>
-        
-    </bean>-->
 </beans>

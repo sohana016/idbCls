@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
@@ -23,10 +24,11 @@ import javax.sql.DataSource;
 public class ProductDao implements ProductSpring{
     
 //   private Connection connection = DbCon.getConnection();
-
+    private JdbcTemplate jdbcTemplate;
     private DataSource dataSource;
     
         public void setDataSource(DataSource dataSource) {
+            this.jdbcTemplate =new JdbcTemplate(dataSource);
         this.dataSource = dataSource;
     }
     
